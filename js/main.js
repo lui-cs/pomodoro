@@ -1,4 +1,4 @@
-function chooseTimer(event, timeName) {
+/*function chooseTimer(event, timeName) {
   let i;
   const timerContent, timerTitle;
 
@@ -20,9 +20,27 @@ document.getElmentById("10bnt").addEventListener("click",setTimeout(function () 
 document.getElmentById("5bnt").addEventListener("click",setTimeout(function () { alert("Your 5 minutes are over!"); },  300000););
 */
 
+document.getElementById('twentyFive').addEventListener("click", function(){
+	document.getElementById('start').value="25"
+});
+
+document.getElementById('short-break').addEventListener("click", function(){
+	document.getElementById('start').value="10"
+});
+
+document.getElementById('long-break').addEventListener("click", function(){
+	document.getElementById('start').value="5"
+});
+
+document.getElementById('custom-time').addEventListener("click", function(){
+	document.getElementById('start').value="25"
+});
+
 let base = document.querySelector("#start");
 base.addEventListener("click", dosometing,false);
 function dosometing(e){
-  let start = document.e.currentTarget.value;
+	if (e.target !== e.currentTarget){
+  let start = e.target.value;
   setTimeout(function () { alert("Your "+start+" minutes are over!"); },  60000 *start);
+	}
 }
