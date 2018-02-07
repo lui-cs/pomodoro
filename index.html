@@ -3,23 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Banana Timer</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<div class="panel">
-    <s>
-    <h1>Banana Timer</h1>
-      <div class="navbar">
-        <ul>
-            <li><a href="#">FAQ</a></li>
-            <li><a href="#">Setting</a></li>
-            <li><a href="#">aaaaaaa</a></li>
-        </ul>
-      </div>>
+
+    <div class="top-navbar">
+      <nav>
+          <ul class="navbar">
+              <h1 id="logo">Banana Timer</h1>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Setting</a></li>
+              <li><a href="#">Contact</a></li>
+          </ul>
+        </nav>
     </div>
-</div>
+
+  <div class="timer-wrapper">
+    <div class="choices">
+      <button class="timer-title" onclick="chooseTimer(event, 'twentyFive')">25 minutes</button>
+      <button class="timer-title" onclick="chooseTimer(event, 'short-break')">Short Break</button>
+      <button class="timer-title" onclick="chooseTimer(event, 'long-break')">Long Break</button>
+      <button class="timer-title" onclick="chooseTimer(event, 'custom-time')">Custom</button>
+    </div>
+        <div id="twentyFive" class="timer-content">
+          <div class="current-time">Display Current Time Here</div>
+        </div>
+        <div id="short-break" class="timer-content">
+          <div class="current-time">Display Current Time Here</div>
+        </div>
+        <div id="long-break" class="timer-content">
+          <div class="current-time">Display Current Time Here</div>
+        </div>
+        <div id="custom-time" class="timer-content">
+          <div class="current-time">Display Current Time Here</div>
+        </div>
+        <div class="button-choices">
+          <button id="start">Start</button>
+          <button id="stop">Stop</button>
+          <button id="reset">Reset</button>
+        </div>
+    </div>
 
 </body>
-<script type="text/javascript" scr="main.js">
-    <
-    /html>
+<script type="text/javascript" scr="js/main.js"></script>
+</html>
