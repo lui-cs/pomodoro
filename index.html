@@ -10,7 +10,7 @@
 <div class="top-navbar">
     <nav>
         <ul class="navbar">
-            <h1 id="logo">Banana Timer</h1>
+            <h1 id="logo">Banana Timer <img src="https://m.popkey.co/987552/NGLb3.gif" alt="" width="50" height="50"></h1>
             <li><a href="#">FAQ</a></li>
             <li><a href="#">Setting</a></li>
             <li><a href="#">Contact</a></li>
@@ -20,20 +20,23 @@
 
 <div class="timer-wrapper">
     <div class="choices">
-        <button class="timer-title" id="twentyFive">25 minutes</button>
-        <button class="timer-title" id="short-break">Short Break</button>
-        <button class="timer-title" id="long-break">Long Break</button>
-        <button class="timer-title" id="custom-time">Custom</button>
+        <button id="default-time" class="timer-title">25 minutes</button>
+        <button class="timer-title" id="five">Short Break</button>
+        <button class="timer-title" id="ten">Long Break</button>
+        <button class="timer-title" id="custom-time" >Custom</button>
     </div>
-    <div class="current-time">Display Current Time Here</div>
-</div>
-<div class="button-choices">
-    <button id="start" value="0">Start</button>
-    <button id="stop">Stop</button>
-    <button id="reset">Reset</button>
-</div>
-</div>
 
+    <div class="current-time">
+      <span id="time-left">00:00</span>
+    </div>
+
+    <div class="button-choices">
+        <button id="start" value="0">Start</button>
+        <button id="stop">Stop</button>
+        <button id="reset">Reset</button>
+    </div>
+</div>
 </body>
-<script type="text/javascript" scr="js/main.js"></script>
+
+<script type="text/javascript" src="js/main.js"></script>
 </html>

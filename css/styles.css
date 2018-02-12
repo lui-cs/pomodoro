@@ -57,6 +57,7 @@ li a {
 
 .choices {
   overflow: hidden;
+  border: 1px solid #ccc;
   background: #f1f1f1;
 }
 
@@ -67,6 +68,7 @@ li a {
   outline: none;
   cursor: pointer;
   padding: 14px 16px;
+  transition: 0.3s;
 }
 
 .choices button:hover {
@@ -77,9 +79,6 @@ li a {
   background-color: #ccc;
 }
 
-.current-time {
+.timer-content {
   display: none;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-top: none;
 }
