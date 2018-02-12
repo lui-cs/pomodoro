@@ -15,6 +15,15 @@
 }
 */
 
+let time = document.getElementById('start').value;
+
+let countDownDate = new Date.setMinutes(time, 0, 0);
+
+document.getElmentById("twentyFive").addEventListener("click", startCountDown);
+document.getElmentById("short-break").addEventListener("click", startCountDown);
+document.getElmentById("long-break").addEventListener("click", startCountDown);
+document.getElmentById("custom-time").addEventListener("click", startCountDown);
+
 document.getElementById('twentyFive').addEventListener("click", function () {
     document.getElementById('start').value = "25"
 });
@@ -31,10 +40,7 @@ document.getElementById('custom-time').addEventListener("click", function () {
     document.getElementById('start').value = "25"
 });
 
-let countDownDate = new Date.now();
-
-let x = setInterval(function () {
-
+let startCountDown = setInterval(function () {
     let now = new Date.now();
 
     let distance = countDownDate - now;
@@ -47,6 +53,6 @@ let x = setInterval(function () {
 
     if (distance < 0) {
         clearInterval(x);
-        document.getElementsByClassName("current-time").innerHTML = "Your "+start+" minutes are over!";
+        document.getElementsByClassName("current-time").innerHTML = "Your " + time + " minutes are over!";
     }
 }, 1000);
