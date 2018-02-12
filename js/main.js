@@ -13,34 +13,40 @@
   document.getElementById(timeName).style.display = "block";
   event.currentTarget.className += " active";
 }
-
-/*
-document.getElmentById("25bnt").addEventListener("click",setTimeout(function () { alert("Your 20 minutes are over!"); },  120000 ););
-document.getElmentById("10bnt").addEventListener("click",setTimeout(function () { alert("Your 10 minutes are over!"); },  600000 ););
-document.getElmentById("5bnt").addEventListener("click",setTimeout(function () { alert("Your 5 minutes are over!"); },  300000););
 */
 
-document.getElementById('twentyFive').addEventListener("click", function(){
-	document.getElementById('start').value="25"
+document.getElementById('twentyFive').addEventListener("click", function () {
+    document.getElementById('start').value = "25"
 });
 
-document.getElementById('short-break').addEventListener("click", function(){
-	document.getElementById('start').value="10"
+document.getElementById('short-break').addEventListener("click", function () {
+    document.getElementById('start').value = "10"
 });
 
-document.getElementById('long-break').addEventListener("click", function(){
-	document.getElementById('start').value="5"
+document.getElementById('long-break').addEventListener("click", function () {
+    document.getElementById('start').value = "5"
 });
 
-document.getElementById('custom-time').addEventListener("click", function(){
-	document.getElementById('start').value="25"
+document.getElementById('custom-time').addEventListener("click", function () {
+    document.getElementById('start').value = "25"
 });
 
-let base = document.querySelector("#start");
-base.addEventListener("click", dosometing,false);
-function dosometing(e){
-	if (e.target !== e.currentTarget){
-  let start = e.target.value;
-  setTimeout(function () { alert("Your "+start+" minutes are over!"); },  60000 *start);
-	}
-}
+let countDownDate = new Date.now();
+
+let x = setInterval(function () {
+
+    let now = new Date.now();
+
+    let distance = countDownDate - now;
+
+    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
+
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementsByClassName("current-time").innerHTML = "Your "+start+" minutes are over!";
+    }
+}, 1000);
