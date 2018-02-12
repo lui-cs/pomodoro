@@ -1,58 +1,43 @@
-/*function chooseTimer(event, timeName) {
-  let i;
-  const timerContent, timerTitle;
-
-  timerContent = document.getElementsByClassName("timer-content");
-  for (i = 0; i < timerContent.length; i++)
-    timerContent[i].style.display = "none";
-
-  timerTitle = document.getElementsByClassName("timer-content");
-  for (i = 0; i < timerTitle.length; i++)
-    timerTitle[i].className = timerTitle[i].className.replace("active", "");
-
-  document.getElementById(timeName).style.display = "block";
-  event.currentTarget.className += " active";
-}
-*/
-
-let time = document.getElementById('start').value;
-
-let countDownDate = new Date.setMinutes(time, 0, 0);
-
-document.getElmentById("twentyFive").addEventListener("click", startCountDown);
-document.getElmentById("short-break").addEventListener("click", startCountDown);
-document.getElmentById("long-break").addEventListener("click", startCountDown);
-document.getElmentById("custom-time").addEventListener("click", startCountDown);
-
-document.getElementById('twentyFive').addEventListener("click", function () {
-    document.getElementById('start').value = "25"
+let length = document.getElementById('start').value;
+let countDownDate = new Date();
+let start = setInterval(function () {startCountDown()},1000);
+let isSet = 0;
+// Set start value based on tab clicked
+document.getElementById('default-time').addEventListener("click", function () {
+    document.getElementById('start').value = "25";
 });
 
-document.getElementById('short-break').addEventListener("click", function () {
-    document.getElementById('start').value = "10"
+document.getElementById('five').addEventListener("click", function () {
+    document.getElementById('start').value = "5";
 });
 
-document.getElementById('long-break').addEventListener("click", function () {
-    document.getElementById('start').value = "5"
+document.getElementById('ten').addEventListener("click", function () {
+    document.getElementById('start').value = "10";
 });
 
 document.getElementById('custom-time').addEventListener("click", function () {
-    document.getElementById('start').value = "25"
+    document.getElementById('start').value = "60";
 });
 
-let startCountDown = setInterval(function () {
-    let now = new Date.now();
+// Count down function that's called when start button is clicked
+function startCountDown(){
+  if(isSet == 1){
+    countDownDate.setMinutes(countDownDate.getMinutes() + length);
+  }
 
-    let distance = countDownDate - now;
+  let now = new Date().getTime();
+  let distance = countDownDate- now ;
+  let seconds = Math.floor(distance / 1000)%60;
+  let minutes = Math.floor(seconds /60)%60;
 
-    let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+  document.getElementById("time-left").innerHTML = minutes + ":" + seconds;
 
-    document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-        + minutes + "m " + seconds + "s ";
+  if (distance < 0) {
+      clearInterval(start);
+      document.getElementById("time-left").innerHTML = "Your " + length + " minutes are over!";
+  }
+};
 
-    if (distance < 0) {
-        clearInterval(x);
-        document.getElementsByClassName("current-time").innerHTML = "Your " + time + " minutes are over!";
-    }
-}, 1000);
+document.getElementById('start').addEventListener("click", startCountDown);
+//document.getElmentById('pause').addEventListener("click", startCountDown);
+//document.getElmentById('reset').addEventListener("click", startCountDown);
