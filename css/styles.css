@@ -1,84 +1,117 @@
-html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{border:0;font-size:100%;font:inherit;vertical-align:baseline;margin:0;padding:0}article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:none}table{border-collapse:collapse;border-spacing:0}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+	border: 0;
+	vertical-align: baseline;
+	margin: 0;
+	padding: 0
+}
 
-* {-webkit-box-sizing: border-box; box-sizing: border-box; -moz-box-sizing: border-box;}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+	display: block
+}
 
 body {
-  font-family: Arial, sans-serif;
+	line-height: 1
+}
+
+ol, ul {
+	list-style: none
+}
+
+blockquote, q {
+	quotes: none
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+	content: none
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0
+}
+
+* {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	-moz-box-sizing: border-box;
+}
+
+body {
+	font-family: Arial, sans-serif;
 }
 
 #logo {
-  float: left;
-  color: #fff;
-  font-size: 3em;
+	float: left;
+	color: #fff;
+	font-size: 3em;
 }
 
 .navbar {
-  list-style-type: none;
-  margin: 0;
-  padding: 3em;
-  overflow: hidden;
-  background-color: black;
+	list-style-type: none;
+	margin: 0;
+	padding: 3em;
+	overflow: hidden;
+	background-color: black;
 }
 
 li {
-  margin-left: 20px;
-  float: right;
+	margin-left: 20px;
+	float: right;
 }
 
 li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
 }
 
 .timer-wrapper {
-  display: -webkit-flex;
-  display: -ms-flex;
-  display: flex;
-  justify-content: center;
-  -ms-align-items: center;
-  align-items: center;
-  margin-top: 5em;
+	display: -webkit-flex;
+	display: -ms-flex;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 5em;
 }
 
 .current-time {
-  margin: 5em 0;
+	margin: 5em 0;
 }
 
 .clearfix {
-  clear: both;
+	clear: both;
 }
 
 .button-choices button {
-  margin-left: 2em;
+	margin-left: 2em;
 }
 
 .choices {
-  overflow: hidden;
-  border: 1px solid #ccc;
-  background: #f1f1f1;
+	overflow: hidden;
+	border: 1px solid #ccc;
+	background: #f1f1f1;
 }
 
 .choices button {
-  background-color: inherit;
-  float: left;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  padding: 14px 16px;
-  transition: 0.3s;
+	background-color: inherit;
+	float: left;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	padding: 14px 16px;
+	transition: 0.3s;
 }
 
 .choices button:hover {
-  background-color: #ddd;
+	background-color: #ddd;
 }
 
 .choices button:active {
-  background-color: #ccc;
+	background-color: #ccc;
 }
 
 .timer-content {
-  display: none;
+	display: none;
 }

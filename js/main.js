@@ -1,43 +1,52 @@
-let length = document.getElementById('start').value;
-let countDownDate = new Date();
-let start = setInterval(function () {startCountDown()},1000);
-let isSet = 0;
-// Set start value based on tab clicked
-document.getElementById('default-time').addEventListener("click", function () {
-    document.getElementById('start').value = "25";
+let duration;
+let start;
+
+document.getElementById("default").addEventListener("click", () => {
+	setTimer(25);
 });
 
-document.getElementById('five').addEventListener("click", function () {
-    document.getElementById('start').value = "5";
+document.getElementById("short").addEventListener("click", () => {
+	setTimer(5);
 });
 
-document.getElementById('ten').addEventListener("click", function () {
-    document.getElementById('start').value = "10";
+document.getElementById("long").addEventListener("click", () => {
+	setTimer(15);
 });
 
-document.getElementById('custom-time').addEventListener("click", function () {
-    document.getElementById('start').value = "60";
-});
+document.getElementById("start").addEventListener("click", startCountDown);
+document.getElementById("pause").addEventListener("click", pauseCountDown);
+document.getElementById("stop").addEventListener("click", stopCountDown);
 
-// Count down function that's called when start button is clicked
-function startCountDown(){
-  if(isSet == 1){
-    countDownDate.setMinutes(countDownDate.getMinutes() + length);
-  }
+function setTimer(minutes) {
+	document.getElementById("time-left").innerHTML = `${minutes}:00`;
+	duration = minutes * 60000;
+}
 
-  let now = new Date().getTime();
-  let distance = countDownDate- now ;
-  let seconds = Math.floor(distance / 1000)%60;
-  let minutes = Math.floor(seconds /60)%60;
+// Count down function that"s called when start button is clicked
+function startCountDown() {
+	start = setInterval(() => {
+		let seconds = parseInt((duration / 1000) % 60);
+		let minutes = parseInt((duration / (1000 * 60)) % 60);
+		if (seconds <= 10) {
+			document.getElementById("time-left").innerHTML = `${minutes}:0${seconds}`;
+		} else {
+			document.getElementById("time-left").innerHTML = `${minutes}:${seconds}`;
+		}
 
-  document.getElementById("time-left").innerHTML = minutes + ":" + seconds;
+		duration -= 1000;
+	}, 1000);
+	if (duration === 0) {
+		clearInterval(start);
+		document.getElementById("time-left").innerHTML = "Done!";
+	}
+}
 
-  if (distance < 0) {
-      clearInterval(start);
-      document.getElementById("time-left").innerHTML = "Your " + length + " minutes are over!";
-  }
-};
+function pauseCountDown() {
+	clearInterval(start);
+}
 
-document.getElementById('start').addEventListener("click", startCountDown);
-//document.getElmentById('pause').addEventListener("click", startCountDown);
-//document.getElmentById('reset').addEventListener("click", startCountDown);
+function stopCountDown() {
+	clearInterval(start);
+	duration = 0;
+	document.getElementById("time-left").innerHTML = "00:00";
+}
